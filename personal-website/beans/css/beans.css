@@ -1,0 +1,141 @@
+
+/* set the CSS */
+
+.grid line {
+  stroke: white;
+  stroke-width: 1px;
+  stroke-opacity: 1;
+}
+
+
+body {
+	font-family: "Arial";
+}
+
+main {
+		max-width: 800px;
+		margin: auto;
+
+		margin-top: 20px;
+		padding-left:10px;
+		padding-right:10px;
+}
+
+main p {
+		font-size: 18px;
+		text-align: center;
+		display: block;
+}
+
+.svg {
+    display: block;
+    margin: auto;
+}
+
+.bean-image {
+   width: 130px;
+   display: inline-block;
+   margin: auto;
+}
+
+
+.ref {
+    margin-bottom: 20px;
+}
+
+
+.ref p {
+	font-size: 15px;
+	text-align: left;
+}
+
+
+
+.axis text {
+	font-size: 14px;
+	color: black;
+}
+
+.label_bar {
+	font-size: 14px;
+	fill: grey; 
+}
+
+.label_axis {
+	font-size: 14px;
+	color: black;
+}
+
+.container-box {
+    width: 420px;
+    
+    border: solid;   
+    border-width: thin;
+    
+    text-align: center;
+    
+    margin: auto;
+    margin-bottom: 20px;
+    
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+
+.container-box a {
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+
+header p {
+	font-size: 45px;
+	text-align: center;
+    margin-bottom: 20px;
+
+	/*font-weight: bold;*/
+ }
+
+.container-image {
+   margin-top: 0px;
+   text-align: center;
+   width: 100%;
+   display: table;
+   margin-bottom: 10px;
+}
+
+.container-row {
+	 display: table-row;
+
+    
+}
+
+.container-cell {
+width: 160px;	
+	display: table-cell;
+}
+
+
+.container-chart p {
+   font-weight: bold;    
+   padding-left: 60px;
+}
+
+
+/*
+TWO div SIDE BY SIDE
+
+METHOD 1
+<div style="width: 100%; display: table;">
+    <div style="display: table-row">
+        <div style="width: 600px; display: table-cell;"> Left </div>
+        <div style="display: table-cell;"> Right </div>
+    </div>
+</div>
+
+METHOD 2
+<div style="width: 100%; overflow: hidden;">
+    <div style="width: 600px; float: left;"> Left </div>
+    <div style="margin-left: 620px;"> Right </div>
+</div>
+*/
