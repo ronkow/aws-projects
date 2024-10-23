@@ -1,18 +1,16 @@
 ---
 AWSTemplateFormatVersion: '2010-09-09'
-Description: 'Create S3 bucket: default settings'
+Description: 'Create S3 Bucket (default settings) and Bucket Policy'
+Parameters:
+  MyBucketName:
+    Description: 'Bucket name'
+    Type: String
+    Default: 'ronkow-bucket'
 Resources:
   S3Bucket:
-    UpdateReplacePolicy: "Retain"
-    Type: "AWS::S3::Bucket"
-    DeletionPolicy: "Retain"
+    Type: 'AWS::S3::Bucket'
     Properties:
-      PublicAccessBlockConfiguration:
-        RestrictPublicBuckets: true
-        IgnorePublicAcls: true
-        BlockPublicPolicy: true
-        BlockPublicAcls: true
-      BucketName: !Sub "${AWS::StackName}"
+      BucketName: !Sub '${MyBucketName}'
       OwnershipControls:
         Rules:
         - ObjectOwnership: "BucketOwnerEnforced"
@@ -21,3 +19,31 @@ Resources:
         - BucketKeyEnabled: true
           ServerSideEncryptionByDefault:
             SSEAlgorithm: "AES256"
+      PublicAccessBlockConfiguration: # AWS Foundational Security Best Practices v1.0.0 S3.8 - set all true
+        RestrictPublicBuckets: true
+        IgnorePublicAcls: true
+        BlockPublicPolicy: false
+        BlockPublicAcls: true
+    UpdateReplacePolicy: 'Retain'
+    DeletionPolicy: 'Retain'
+  S3BucketPolicy:
+    Type: 'AWS::S3::BucketPolicy'
+    Properties:
+      Bucket: !Ref S3Bucket
+      PolicyDocument:
+        Statement:
+        - Sid: AllowGetObject
+          Effect: Allow
+          Action: 's3:GetObject'
+          Principal: '*'
+          Resource: !Sub 'arn:aws:s3:::${S3Bucket}/*'
+        - Sid: AllowSSLRequestsOnly # AWS Foundational Security Best Practices v1.0.0 S3.5
+          Effect: Deny
+          Action: 's3:*'       
+          Principal: '*'
+          Resource:
+          - !GetAtt 'S3Bucket.Arn'
+          - !Sub '${S3Bucket.Arn}/*'
+          Condition:
+            Bool:
+              'aws:SecureTransport': false
