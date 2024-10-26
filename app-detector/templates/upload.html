@@ -1,1 +1,124 @@
+<html lang="en" class="h-100">
 
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="canonical" href="">    
+
+<title>Feature Detector</title>
+
+
+<style>
+a:link {
+    text-decoration: none;  /* none removes the underline */
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+a:visited {
+    text-decoration: none;
+}
+
+a:active {
+        text-decoration: none;
+}
+
+a.link {
+    color:dodgerblue;
+}
+
+main {
+                max-width: 800px;
+                margin: auto;
+                margin-top: 20px;
+                padding-left:10px;
+                padding-right:10px;
+}
+
+.word_field {
+    width: 200px; 
+    height: 40px;
+}
+</style>
+
+</head>
+
+
+<body class="d-flex flex-column h-100">
+
+<main class="">
+
+<div style="font-family:'Arial';sans-serif; display:block; color:grey;">
+    <a class="link" href="https://ronkow.com">Home</a>
+</div>    
+
+
+
+    
+<div style="padding-left:10px; padding-right:10px;">
+    
+<div class="p-2 mb-0 rounded-3">
+<div class="container py-99">
+
+<div style="text-align:center; font-family:Arial;">
+
+
+    
+<div style="margin-bottom:40px"></div>    
+
+<h1 style="font-weight:bold; font-size:36px">Detect Features In Your Photo</h1>
+<div style="margin-bottom:30px"></div>    
+    
+<span style="font-size:20px;">Upload a photo (gif, png, jpg, jpeg):</span>
+<div style="margin-bottom:30px"></div>
+    
+    
+<form method="post" enctype="multipart/form-data" action="/" id="" novalidate>
+
+<input style="padding-left:0px;" value="XXX" type="file" name="file" autocomplete="off" required>
+
+<p>
+<input type="submit" value="Upload">        
+</p>
+
+</form>
+<div style="margin-bottom:10px"></div>
+
+
+{%if objects %}
+<span style="font-size:16px;font-weight:bold">Features detected:</span>
+<p>
+{% for i in objects %}
+{{ i }}&nbsp;&nbsp;
+{% endfor %}
+</p>
+{% endif %}
+<div style="margin-bottom:10px"></div>
+
+
+{% if filename %}
+
+{% if flag %}
+<img src="data:image/png;base64,{{ img_data }}", width="360">
+{% else %}
+<img src="data:image/png;base64,{{ img_data }}">
+{% endif %}
+
+{% endif %}
+
+<div style="margin-bottom:10px"></div>
+    
+</div> 
+</div>
+</div>
+</div>
+
+
+</main>
+
+
+</body>
+</html>
