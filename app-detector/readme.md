@@ -3,5 +3,5 @@ A Flask photo app deployed in AWS using:
 - Lightsail
 - Route 53
 
-This app detects objects in the phot you upload: 
+This app detects objects in the photo you upload: 
 [https://detector.ronkow.com](https://detector.ronkow.com)
