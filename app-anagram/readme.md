@@ -1,7 +1,8 @@
 A Flask word app deployed in AWS using
 - EC2
 - Route 53
-- CloudFront 
+- CloudFront
+  
 and
 - web server Nginx
 - WSGI web server Gunicorn
