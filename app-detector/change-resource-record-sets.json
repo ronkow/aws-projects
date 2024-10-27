@@ -1,0 +1,17 @@
+{
+  "Comment": "Alias record for Lightsail container service",
+  "Changes": [
+    {
+      "Action": "CREATE",
+      "ResourceRecordSet": {
+        "Name": "detector.ronkow.com",
+        "Type": "A",
+        "AliasTarget": {
+          "HostedZoneId": "XXX",
+          "DNSName": "flask-service.xxx.ap-southeast-1.cs.amazonlightsail.com.",
+          "EvaluateTargetHealth": true
+        }
+      }
+    }
+  ]
+}
