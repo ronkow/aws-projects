@@ -1,4 +1,4 @@
-A Flask photo app deployed in AWS using: 
+A Flask photo app deployed in AWS using
 - Rekognition
 - Lightsail
 - Route 53
