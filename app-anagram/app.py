@@ -130,13 +130,6 @@ user-select:none;">
 
 </div>
 
-<p>
-{% if flag != None %}
-<p><span style="font-size:16px; color:#555">Anagram:</span></p>
-{% endif %}
-</p>
-
-
 
 <p style="font-size:17px">
 {% if result != None %}
@@ -173,15 +166,9 @@ def index():
 
     if request.method == 'POST' and form.validate():
         word = form.word_field.data
-
         anagram_result = compute(word)
 
-    if anagram_result == 'This word is not in our word list':
-        flag = None
-    else:
-        flag = None
-
-    return render_template_string(page, template_form=form, result=anagram_result, flag=flag)
+    return render_template_string(page, template_form=form, result=anagram_result)
 
 
 if __name__ == '__main__':
