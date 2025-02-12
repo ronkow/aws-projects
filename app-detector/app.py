@@ -17,7 +17,7 @@ from detector import detector
 
 app = Flask(__name__)
 
-UPLOAD_FOLDER = './static/'
+DIR_UPLOAD = 'static'
 ALLOWED = ('png','jpg','jpeg','gif')
 
 def allowed_file(filename):
@@ -49,12 +49,9 @@ def f2():
         time1 = datetime.now().strftime("%H%M%S")
         filename = date1 + '_' + time1 + '_' + filename #'.png'
         
-        file.save(os.path.join(UPLOAD_FOLDER, filename))
+        file.save(os.path.join(DIR_UPLOAD, filename))
  
-        image_dir = UPLOAD_FOLDER
-        path = image_dir + filename
-        
-        filename1, labels = detector(path)
+        filename1, labels = detector(DIR_UPLOAD + filename)
 
         img = Image.open(file.stream)
         if img.width > 360:
