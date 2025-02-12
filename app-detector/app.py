@@ -14,7 +14,6 @@ from werkzeug.utils import secure_filename
 
 from detector import detector
 
-
 app = Flask(__name__)
 
 DIR_UPLOAD = 'static'
@@ -33,6 +32,7 @@ def f1():
 
 @app.route('/', methods=['POST'])
 def f2():    
+    
     if 'file' not in request.files:
         #flash('')
         return redirect(request.url)
@@ -50,8 +50,8 @@ def f2():
         filename = date1 + '_' + time1 + '_' + filename #'.png'
         
         file.save(os.path.join(DIR_UPLOAD, filename))
- 
-        filename1, labels = detector(DIR_UPLOAD + filename)
+
+        filename1, labels = detector(os.path.join(DIR_UPLOAD, filename))
 
         img = Image.open(file.stream)
         if img.width > 360:
