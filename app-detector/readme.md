@@ -7,7 +7,7 @@ This app detects the objects in the photo you upload:
 [https://detector.ronkow.com](https://detector.ronkow.com) 
 
 AWS tutorial:  
-[https://aws.amazon.com/tutorials/deploy-webapp-lightsail/](ttps://aws.amazon.com/tutorials/deploy-webapp-lightsail/) 
+[https://aws.amazon.com/tutorials/deploy-webapp-lightsail/](https://aws.amazon.com/tutorials/deploy-webapp-lightsail/) 
 
 Create Docker image:  
 `docker build -t image-name .`
