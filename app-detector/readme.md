@@ -9,12 +9,12 @@ This app detects the objects in the photo you upload:
 AWS tutorial:  
 [https://aws.amazon.com/tutorials/deploy-webapp-lightsail/](https://aws.amazon.com/tutorials/deploy-webapp-lightsail/) 
 
-Create Docker image   
-`docker build -t image-name .`  
+Create Docker image    
+`docker build -t <image-name> .`  
 `docker images`
 
 Run in localhost     
-`docker run -p 5000:5000 image-name:latest`
+`docker run -p 5000:5000 <image-name>:latest`
 
 Using AWS CLI,    
 Push image to Amazon Lightsail    
@@ -22,4 +22,3 @@ Push image to Amazon Lightsail
 
 Deploy in container service  
 `aws lightsail create-container-service-deployment --region <region-name> --cli-input-json file://lc.json`
-
