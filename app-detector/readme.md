@@ -10,7 +10,7 @@ AWS tutorial:
 [https://aws.amazon.com/tutorials/deploy-webapp-lightsail/](https://aws.amazon.com/tutorials/deploy-webapp-lightsail/) 
 
 Create Docker image:  
-`docker build -t image-name .`
+`docker build -t image-name .`  
 `docker images`
 
 Run in localhost:  
