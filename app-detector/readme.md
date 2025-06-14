@@ -14,7 +14,7 @@ Create Docker image
 `docker images`
 
 Run in localhost     
-`docker run -p 5000:5000 <image-name>:latest`
+`docker run -p 5000:5000 <image-name>:<image-tag>  `
 
 Using AWS CLI,    
 Push image to Amazon Lightsail    
