@@ -1,0 +1,15 @@
+{
+    "serviceName": "container-service-name-xx",
+    "containers": {
+        "container-name-yy": {
+            "image": ":container-service-name-xx.container-label-zz.99",
+            "ports": {
+                "5000": "HTTP"
+            }
+        }
+    },
+    "publicEndpoint": {
+        "containerName": "container-name-yy",
+        "containerPort": 5000
+    }
+}
