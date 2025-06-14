@@ -7,8 +7,8 @@
         "Name": "detector.ronkow.com",
         "Type": "A",
         "AliasTarget": {
-          "HostedZoneId": "XXX",
-          "DNSName": "flask-service.xxx.ap-southeast-1.cs.amazonlightsail.com.",
+          "HostedZoneId": "ZZZ",
+          "DNSName": "container-service-name.xxx.region-name.cs.amazonlightsail.com.",
           "EvaluateTargetHealth": true
         }
       }
