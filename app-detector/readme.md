@@ -13,7 +13,7 @@ Create Docker image
 `docker build -t image-name .`  
 `docker images`
 
-Run in localhost
+Run in localhost   
 `docker run -p 5000:5000 image-name:latest`
 
 Using AWS CLI,  
