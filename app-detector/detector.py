@@ -1,5 +1,5 @@
 import os
-from datetime import datetime
+#from datetime import datetime
 
 from io import BytesIO
 from PIL import Image
@@ -10,7 +10,7 @@ plt.switch_backend('agg')
 import matplotlib.patches as patches
 
 from dotenv import load_dotenv, find_dotenv
-load_dotenv(find_dotenv()) # Load the .env file.
+load_dotenv(find_dotenv())
 
 import boto3
 
@@ -20,21 +20,19 @@ UPLOAD_FOLDER = './static/'
 # Fetch variables from the .env file.
 username = os.getenv('USERNAME')
 password = os.getenv('PASSWORD')
+region = os.getenv('REGION')
 
 
 def detect(photo):
-    client=boto3.client('rekognition', region_name='ap-southeast-1', aws_access_key_id=username, aws_secret_access_key=password)
+    client=boto3.client('rekognition', region_name=region, aws_access_key_id=username, aws_secret_access_key=password)
     
     with open(photo, 'rb') as image:
         response = client.detect_labels(Image={'Bytes': image.read()}, MaxLabels=100)
-        #print('Detected labels in ' + photo)
-
+        
     labels_all = []
     for label in response['Labels']:
         if label['Confidence'] > 80:
             labels_all.append(label['Name'])
-            
-            #print (label['Name'] + ' : ' + str(label['Confidence']))
             
     with open(photo, 'rb') as image:        
         img = Image.open(BytesIO(image.read()))
@@ -57,16 +55,8 @@ def detect(photo):
 
                 label_text = label['Name'] #+ ' (' + str(round(label['Confidence'], 2)) + '%)'
                 plt.text(left, top - 2, label_text, color='r', fontsize=8, bbox=dict(facecolor='white', alpha=0.7))
-
-        datetime1 = datetime.now().strftime("%Y%m%d")
-        filename = 'detected_' + datetime1 + '.png'
-
-        filepath = UPLOAD_FOLDER + filename
         
-        #plt.savefig(filepath)
-        #plt.show()
-        
-    return filename, labels_all
+    return labels_all
 
 
 def detector(image_path):
