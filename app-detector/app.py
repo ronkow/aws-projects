@@ -51,7 +51,7 @@ def f2():
         
         file.save(os.path.join(DIR_UPLOAD, filename))
 
-        filename1, labels = detector(os.path.join(DIR_UPLOAD, filename))
+        labels = detector(os.path.join(DIR_UPLOAD, filename))
 
         img = Image.open(file.stream)
         if img.width > 360:
@@ -64,7 +64,7 @@ def f2():
             image_bytes = buf.getvalue()
         encoded_string = base64.b64encode(image_bytes).decode()
        
-        return render_template('upload.html', filename=filename, filename1=filename1, objects=labels, img_data=encoded_string, flag=flag)
+        return render_template('upload.html', filename=filename, objects=labels, img_data=encoded_string, flag=flag)
     else:
         return redirect(request.url)
 
