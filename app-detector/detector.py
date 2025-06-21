@@ -23,7 +23,7 @@ password = os.getenv('PASSWORD')
 region = os.getenv('REGION')
 
 
-def detect(photo):
+def detector(photo):
     client=boto3.client('rekognition', region_name=region, aws_access_key_id=username, aws_secret_access_key=password)
     
     with open(photo, 'rb') as image:
@@ -57,7 +57,3 @@ def detect(photo):
                 plt.text(left, top - 2, label_text, color='r', fontsize=8, bbox=dict(facecolor='white', alpha=0.7))
         
     return labels_all
-
-
-def detector(image_path):
-    return detect(image_path)
